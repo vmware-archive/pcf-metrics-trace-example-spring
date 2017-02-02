@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pivotal-cf/pcf-metrics-trace-example-spring.svg?branch=master)](https://travis-ci.org/pivotal-cf/pcf-metrics-trace-example-spring)
+
 ### DEPLOY
 To use the script, you must login as a user that has the ability to assign space permissions and make spaces.
 It will create a given shopping-cart, orders, and payments app that can be used to preview an example trace.
