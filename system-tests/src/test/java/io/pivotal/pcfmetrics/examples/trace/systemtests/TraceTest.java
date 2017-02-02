@@ -7,10 +7,10 @@ import org.junit.Test;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
 
-import java.io.IOException;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
@@ -47,7 +47,7 @@ public class TraceTest {
 
     @Test(timeout = 120000)
     public void testTraces() throws Exception {
-        waitForShoppingCartToStart();
+        waitForAppsToStart();
 
         String uri = "http://localhost:" + shoppingCart.port() + "/checkout";
         TestRestTemplate restTemplate = new TestRestTemplate();
@@ -69,14 +69,20 @@ public class TraceTest {
         assertThat(ordersTrace.getSpanId()).isNotEqualTo(paymentsTrace.getSpanId());
     }
 
-    public void waitForShoppingCartToStart() throws InterruptedException {
-        for (;;) {
-            Thread.sleep(1000);
-            try (Socket ignored = new Socket("localhost", shoppingCart.port())) {
-                return;
-            } catch (IOException ex) {
+    private void waitForAppsToStart() throws InterruptedException {
+        Consumer<Integer> waitForApp = (port) -> {
+            for (;;) {
+                try {
+                    Thread.sleep(1000);
+                    Socket ignored = new Socket("localhost", port);
+                    ignored.close();
+                    return;
+                } catch (Exception ex) {}
             }
-        }
-    }
+        };
 
+        waitForApp.accept(payments.port());
+        waitForApp.accept(orders.port());
+        waitForApp.accept(shoppingCart.port());
+    }
 }
