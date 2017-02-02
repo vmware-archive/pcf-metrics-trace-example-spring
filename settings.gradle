@@ -1,0 +1,5 @@
+rootProject.name = "pcf-metrics-tracing-spring-example"
+
+new File(rootDir, "applications").eachDir { dir -> include "applications/${dir.name}" }
+
+include "system-tests"
