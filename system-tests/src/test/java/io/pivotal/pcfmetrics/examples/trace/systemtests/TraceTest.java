@@ -45,7 +45,7 @@ public class TraceTest {
         Runtime.getRuntime().exec("rm -rf tmp").waitFor();
     }
 
-    @Test(timeout = 20000)
+    @Test(timeout = 120000)
     public void testTraces() throws Exception {
         waitForShoppingCartToStart();
 
