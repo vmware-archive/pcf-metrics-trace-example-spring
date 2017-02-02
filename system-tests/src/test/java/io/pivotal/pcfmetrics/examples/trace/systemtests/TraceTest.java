@@ -70,7 +70,7 @@ public class TraceTest {
     }
 
     public void waitForShoppingCartToStart() throws InterruptedException {
-        for (; ; ) {
+        for (;;) {
             Thread.sleep(1000);
             try (Socket ignored = new Socket("localhost", shoppingCart.port())) {
                 return;
