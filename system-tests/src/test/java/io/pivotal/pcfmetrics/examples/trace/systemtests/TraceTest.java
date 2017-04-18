@@ -82,7 +82,10 @@ public class TraceTest {
         };
 
         waitForApp.accept(payments.port());
+        System.out.println("Payments app started");
         waitForApp.accept(orders.port());
+        System.out.println("Orders app started");
         waitForApp.accept(shoppingCart.port());
+        System.out.println("Shopping cart app started");
     }
 }
