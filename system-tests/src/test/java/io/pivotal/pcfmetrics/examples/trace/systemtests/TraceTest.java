@@ -45,7 +45,7 @@ public class TraceTest {
         Runtime.getRuntime().exec("rm -rf tmp").waitFor();
     }
 
-    @Test(timeout = 120000)
+    @Test(timeout = 180000)
     public void testTraces() throws Exception {
         waitForAppsToStart();
 
