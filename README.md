@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/pivotal-cf/pcf-metrics-trace-example-spring.svg?branch=master)](https://travis-ci.org/pivotal-cf/pcf-metrics-trace-example-spring)
+[![Build Status](https://circleci.com/gh/pivotal-cf/pcf-metrics-trace-example-spring.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/pivotal-cf/pcf-metrics-trace-example-spring)
 
 # PCF Metrics Spring Tracer Example
 
