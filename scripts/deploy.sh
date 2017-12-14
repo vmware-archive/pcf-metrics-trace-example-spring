@@ -44,4 +44,6 @@ cf start $SHOPPING_CART_APP_NAME
 
 SHOPPING_CART_HOST=$(cf app $SHOPPING_CART_APP_NAME | grep routes | awk '{print $2}')
 
+echo ""
 echo Run \`curl $SHOPPING_CART_HOST/checkout\` to verify that the deployment was successful.
+echo ""
