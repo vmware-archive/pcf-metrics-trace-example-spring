@@ -1,16 +1,8 @@
-apply plugin: 'java'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    testCompile("junit:junit:4.12")
-    testCompile("org.assertj:assertj-core:2.5.0")
-    testCompile("org.springframework.boot:spring-boot-starter-test:1.4.4.RELEASE")
-    testCompile('org.springframework.boot:spring-boot-starter-web:1.4.4.RELEASE')
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+    testCompile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
 }
 
-test.dependsOn tasks.getByPath(':applications/payments:bootRepackage')
-test.dependsOn tasks.getByPath(':applications/orders:bootRepackage')
-test.dependsOn tasks.getByPath(':applications/shopping-cart:bootRepackage')
+test.dependsOn tasks.getByPath(':applications:payments:bootRepackage')
+test.dependsOn tasks.getByPath(':applications:orders:bootRepackage')
+test.dependsOn tasks.getByPath(':applications:shopping-cart:bootRepackage')
