@@ -7,7 +7,7 @@ cd $WORKING_DIR/..
 echo $(pwd)
 
 if [ -z "$SUFFIX" ]; then echo "usage: SUFFIX=<APP_NAME_SUFFIX> ./deploy.sh" && exit; fi
-APP_DOMAIN=$${1:-cfapps.io}
+APP_DOMAIN=${1:-cfapps.io}
 PAYMENTS_APP_NAME="payments-$SUFFIX"
 ORDERS_APP_NAME="orders-$SUFFIX"
 SHOPPING_CART_APP_NAME="shopping-cart-$SUFFIX"
